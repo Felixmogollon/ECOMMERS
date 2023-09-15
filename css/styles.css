@@ -60,7 +60,7 @@ html{
 button,
 input,
 textarea{
-    font-family: var (--body-font);
+    font-family: var(--body-font);
     font-size: var(--normal-font);
     font-weight: var(--font-normal);
     color: var(--text-color);
@@ -272,6 +272,14 @@ button {
 
 }
 
+span.notify.show--notify {
+    background: red;
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    visibility: visible;
+}
+
 .show--menu{
     left: 0;
 }
@@ -281,7 +289,8 @@ button {
 
     .products__container{
         display: grid;
-        grid-template-columns: repeat(4,minmax(258px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+        gap: var(--sp-2);
 
     }
 
@@ -342,6 +351,7 @@ button {
     .product__stock{
         grid-column: span 2;
         justify-self: flex-end;
+        font-size: var(--small-font);
     }
     .product__title{
         grid-column: span 3 ;
@@ -414,7 +424,7 @@ button {
 
     .cart__container{
         display: grid;
-        grid-template-columns: 2fr;
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
         grid-template-rows: 10% 70% 20%;
         height: 100%;
     }
@@ -531,4 +541,59 @@ button {
         padding: var(--sp-1); 
     }
 
+    @media (min-width: 768px){
+        :root {
+            --header-height: 75px;
 
+        }
+        .header{
+            top: 0;
+            bottom: unset;
+
+        }
+        .nav__list{
+            display: flex;
+            align-items: center;
+        }
+        .nav__menu
+        .btn--close,
+        .btn--menu{
+            display: none;
+        }
+        .main{
+            padding-top: var(--header-height);
+
+        }
+
+        .products__tittle{
+            font-size: var(--small-font);
+        
+        }
+        .cart{
+            top: var(--header-height);
+        }
+
+    }
+
+    @media(min-width:1024px){
+        .section--title,
+        .container{
+            margin: 0 auto;
+        }
+    }
+
+    .dark-mode{
+        --body-color: #222;
+        --text-color: #ffffff;
+        --card-color: #444;
+        --title-color: #07cd3b;
+        --bg-color: #111; 
+        color: #07cd3b;
+        background-color: #111;
+        
+        /* Debes definir tu propio color verde neón aquí */
+        
+
+    }  
+    
+  
